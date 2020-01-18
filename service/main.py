@@ -18,7 +18,7 @@ class CylleneusSource(BaseModel):
 
 class CylleneusWork(BaseModel):
     corpus: str
-    docix: int
+    docix: List[int]
 
 
 class CylleneusQuery(BaseModel):
@@ -53,7 +53,7 @@ app = FastAPI()
 
 @app.post("/search/", status_code=HTTP_202_ACCEPTED)
 async def search(query: CylleneusQuery):
-    result = tasks.search.delay(query.query, query.collection)
+    result = tasks.search.delay(query.query, [work.json() for work in query.collection])
     return JSONResponse(content={"id": result.id})
 
 

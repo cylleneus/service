@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 from celery import Celery
@@ -14,8 +15,15 @@ Cylleneus = Celery(
 @Cylleneus.task
 def search(q, collection=None):
     if collection:
+        works = [
+            json.loads(item)
+            for item in collection
+        ]
         c = Collection(
-            [Corpus(work.corpus).work_by_docix(work.docix) for work in collection]
+            [
+                Corpus(work["corpus"]).work_by_docix(work["docix"][0])
+                for work in works
+            ]
         )
     else:
         c = Collection(Corpus("perseus").works)
