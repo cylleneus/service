@@ -13,7 +13,7 @@ with open("HISTORY.rst") as history_file:
 
 version = "0.0.3"
 
-requirements = ["cylleneus>=0.3.4", "celery[redis]>=4.4.0", "fastapi>=0.46.0", "rabbitmq>=0.2.0", "uvicorn>=0.11.1"]
+requirements = ["cylleneus>=0.3.5", "celery[redis]>=4.4.0", "fastapi>=0.46.0", "rabbitmq>=0.2.0", "uvicorn>=0.11.1"]
 
 setup_requirements = []
 
