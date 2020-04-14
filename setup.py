@@ -11,9 +11,9 @@ with open("README.rst") as readme_file:
 with open("HISTORY.rst") as history_file:
     history = history_file.read()
 
-version = "0.0.3"
+version = "0.0.4"
 
-requirements = ["cylleneus>=0.3.5", "celery[redis]>=4.4.0", "fastapi>=0.46.0", "rabbitmq>=0.2.0", "uvicorn>=0.11.1"]
+requirements = ["cylleneus>=0.3.6", "celery[redis]>=4.4.0", "fastapi>=0.46.0", "rabbitmq>=0.2.0", "uvicorn>=0.11.1"]
 
 setup_requirements = []
 
