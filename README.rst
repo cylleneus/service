@@ -2,7 +2,7 @@
 Cylleneus background service
 ============================
 
-.. image:: https://img.shields.io/badge/cylleneus-next--gen%20corpus%20search%20for%20Greek%20and%20Latin-blue.svg
+.. image:: https://img.shields.io/badge/cylleneus-next--gen%20corpus%20search%20for%20ancient%20languages-blue.svg
         :target: https://github.com/wmshort/cylleneus
 
 
