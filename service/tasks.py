@@ -15,14 +15,10 @@ Cylleneus = Celery(
 @Cylleneus.task
 def search(q, collection=None):
     if collection:
-        works = [
-            json.loads(item)
-            for item in collection
-        ]
+        works = [json.loads(item) for item in collection]
         c = Collection(
-            [
-                Corpus(work["corpus"]).work_by_docix(work["docix"][0])
-                for work in works
+            works=[
+                Corpus(work["corpus"]).work_by_docix(work["docix"][0]) for work in works
             ]
         )
     else:
@@ -48,9 +44,9 @@ def index(corpus, filename, author=None, title=None):
     docix = w.indexer.from_file(Path(filename))
 
     return {
-        "corpus":   corpus,
-        "docix":    docix,
+        "corpus": corpus,
+        "docix": docix,
         "filename": filename,
-        "author":   w.author,
-        "title":    w.title,
+        "author": w.author,
+        "title": w.title,
     }
