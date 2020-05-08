@@ -5,6 +5,7 @@ from celery import Celery
 
 from cylleneus.corpus import Corpus, Work
 from cylleneus.search import Searcher, Collection
+from cylleneus.settings import DEFAULT_CORPUS
 
 # Create the app and set the broker location
 Cylleneus = Celery(
@@ -22,26 +23,24 @@ def search(q, collection=None):
             ]
         )
     else:
-        c = Collection(Corpus("perseus").works)
+        c = Collection(Corpus(DEFAULT_CORPUS).works)
     searcher = Searcher(c)
     s = searcher.search(q)
     return s.to_json()
 
 
 @Cylleneus.task
-def corpus(c):
-    return [
-        {"docix": work.docix, "author": work.author, "title": work.title}
-        for work in Corpus(c).works
-    ]
+def manifest(corpus):
+    c = Corpus(corpus)
+    return c.manifest
 
 
 @Cylleneus.task
-def index(corpus, filename, author=None, title=None):
+def index(corpus, filename):
     c = Corpus(corpus)
 
-    w = Work(c, author, title)
-    docix = w.indexer.from_file(Path(filename))
+    w = Work(corpus=c)
+    docix = w.indexer.from_file(Path(filename), destructive=True, optimize=True)
 
     return {
         "corpus": corpus,
