@@ -1,5 +1,5 @@
-cylleneus>=0.6.0
-celery[redis]>=4.4.0
-fastapi>=0.46.0
-rabbitmq>=0.2.0
-uvicorn>=0.11.1
+cylleneus==0.6.1
+celery[redis]==4.4.0
+fastapi==0.46.0
+rabbitmq==0.2.0
+uvicorn==0.11.1
