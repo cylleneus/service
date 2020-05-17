@@ -1,4 +1,4 @@
-cylleneus==0.6.1
+cylleneus==0.6.4
 celery[redis]==4.4.0
 fastapi==0.46.0
 rabbitmq==0.2.0
