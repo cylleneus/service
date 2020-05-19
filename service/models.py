@@ -34,8 +34,8 @@ class CylleneusSearch(BaseModel):
     collection: List[CylleneusWork]
     minscore: int = None
     top: int
-    start_time: str
-    end_time: str
+    start_dt: str
+    end_dt: str
     maxchars: int
     surround: int
     count: List[int]
