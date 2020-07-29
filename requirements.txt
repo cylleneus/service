@@ -2,4 +2,4 @@ cylleneus==0.8.0
 celery[redis]==4.4.0
 fastapi==0.46.0
 rabbitmq==0.2.0
-uvicorn==0.11.1
+uvicorn==0.11.7
